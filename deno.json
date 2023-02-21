@@ -8,6 +8,6 @@
 		}
 	},
 	"tasks": {
-		"start": "deno run --allow-read --allow-write --allow-run --allow-net=localhost,127.0.0.1,0.0.0.0,deno.land --unstable ./mod.ts"
+		"start": "deno run --allow-read --allow-write --allow-run --allow-net=localhost,127.0.0.1,0.0.0.0,deno.land,cdn.deno.land --unstable ./mod.ts"
 	}
 }

@@ -5,7 +5,7 @@ Simple and light MDX to TSX/JSX transformer for Deno that supports inline typesc
 ## Installation
 
 ```sh
-deno install --allow-read --allow-write --allow-run --allow-net=localhost,127.0.0.1,0.0.0.0,deno.land --unstable -n dmdx https://deno.land/x/dmdx/mod.ts
+deno install --force --quiet --no-check --allow-read --allow-write --allow-run --allow-net=localhost,127.0.0.1,0.0.0.0,deno.land,cdn.deno.land --unstable -n dmdx https://deno.land/x/dmdx/mod.ts
 ```
 
 ## Usage
