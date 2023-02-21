@@ -1,0 +1,13 @@
+{
+	"fmt": {
+		"options": {
+			"singleQuote": true,
+			"useTabs": true,
+			"semiColons": false,
+			"indentWidth": 4
+		}
+	},
+	"tasks": {
+		"start": "deno run -A --unstable ./mod.ts"
+	}
+}
