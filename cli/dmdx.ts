@@ -4,7 +4,7 @@ import { preview } from './preview.ts'
 
 export const cli = new Command()
 	.name('dmdx')
-	.version('0.1.0')
+	.version('0.2.2')
 	.command('transform', transform)
 	.command('preview', preview)
 	.command(
