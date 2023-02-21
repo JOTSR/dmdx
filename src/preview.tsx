@@ -37,8 +37,6 @@ export async function preview(
 
 const routes: Map<string, Response> = new Map()
 
-function handler(req: Request): Response {
+export function handler(req: Request): Response {
 	return routes.get(new URL(req.url).pathname) ?? new Response(null)
 }
-
-Deno.serve({ port: 8735 }, handler)

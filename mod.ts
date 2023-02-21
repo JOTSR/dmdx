@@ -4,6 +4,7 @@ export { transform } from './src/transform.ts'
 
 import { Command, DenoLandProvider, EnumType, UpgradeCommand } from './deps.ts'
 import { cliTransform, previewAndclear } from './src/cli.ts'
+import { handler } from "./src/preview.tsx";
 
 if (import.meta.main) {
 	const transform = new Command()
@@ -51,13 +52,13 @@ if (import.meta.main) {
 		//     '-w, --view <view_type:view>','Preview in browser or webview',
 		//     { default: 'browser' }
 		// )
-		// .option('-p, --port <port:number>', 'Server port', { default: 8735 })
-		.action(async ({ type }, path) => {
+		.option('-p, --port <port:number>', 'Server port', { default: 8735 })
+		.action(async ({ type, port }, path) => {
 			await previewAndclear(
 				path,
 				{
 					type,
-					port: 8735,
+					port,
 					view: 'browser',
 				} as {
 					type: 'tsx' | 'jsx'
@@ -65,7 +66,7 @@ if (import.meta.main) {
 					port: number
 				},
 			)
-			setTimeout((_) => Deno.exit(0), 10_000)
+            Deno.serve({ port }, handler)
 		})
 
 	await new Command()
