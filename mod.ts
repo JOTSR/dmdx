@@ -2,7 +2,7 @@ export { toJSX } from './src/cli.ts'
 export { parse } from './src/parse.ts'
 export { transform } from './src/transform.ts'
 
-import { Command, EnumType } from './deps.ts'
+import { Command, DenoLandProvider, EnumType, UpgradeCommand } from './deps.ts'
 import { cliTransform, previewAndclear } from './src/cli.ts'
 
 if (import.meta.main) {
@@ -73,5 +73,10 @@ if (import.meta.main) {
 		.version('0.1.0')
 		.command('transform', transform)
 		.command('preview', preview)
+        .command('upgrade', new UpgradeCommand({
+            main: 'mod.ts',
+            args: ['--allow-read', '--allow-write', '--allow-run', '--allow-net=localhost,127.0.0.1,0.0.0.0,deno.land,cdn.deno.land', '--unstable', '-n dmdx', '--quiet', '--no-check'],
+            provider: new DenoLandProvider()
+        }))
 		.parse(Deno.args)
 }
